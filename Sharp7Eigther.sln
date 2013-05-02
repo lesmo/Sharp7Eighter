@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp7Eigther", "Sharp7Eigther\Sharp7Eigther.csproj", "{26A7806A-1C4F-435E-BE87-19144F8F2BF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharp7Eigther", "Sharp7Eighter\Sharp7Eigther.csproj", "{26A7806A-1C4F-435E-BE87-19144F8F2BF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
