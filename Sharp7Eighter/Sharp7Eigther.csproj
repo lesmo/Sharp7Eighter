@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\Sinuhé\Documents\GitHub\Sharp7Eighter\Publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,9 +22,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Sharp7Eighter</ProductName>
+    <PublisherName>Sharp Dynamics</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -35,8 +38,10 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,6 +57,18 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Assets\wp.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D70D4E76D9C475DF9555AA2A4443C7DAAD5D67AD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Sharp7Eigther_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -163,51 +180,84 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Steps\Step1.es.resx">
+      <DependentUpon>Step1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step1.resx">
       <DependentUpon>Step1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step2.es.resx">
+      <DependentUpon>Step2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step2.resx">
       <DependentUpon>Step2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step2c.es.resx">
+      <DependentUpon>Step2c.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step2c.resx">
       <DependentUpon>Step2c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step2d.es.resx">
+      <DependentUpon>Step2d.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step2d.resx">
       <DependentUpon>Step2d.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step2e.es.resx">
+      <DependentUpon>Step2e.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step2e.resx">
       <DependentUpon>Step2e.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step2f.es.resx">
+      <DependentUpon>Step2f.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step2f.resx">
       <DependentUpon>Step2f.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step2z.es.resx">
+      <DependentUpon>Step2z.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step2z.resx">
       <DependentUpon>Step2z.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step3.es.resx">
+      <DependentUpon>Step3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step3.resx">
       <DependentUpon>Step3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step3v.es.resx">
+      <DependentUpon>Step3v.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step3v.resx">
       <DependentUpon>Step3v.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step4.es.resx">
+      <DependentUpon>Step4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step4.resx">
       <DependentUpon>Step4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step4r.es.resx">
+      <DependentUpon>Step4r.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step4r.resx">
       <DependentUpon>Step4r.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step4w.es.resx">
+      <DependentUpon>Step4w.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step4w.resx">
       <DependentUpon>Step4w.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Steps\Step5.es.resx">
+      <DependentUpon>Step5.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Steps\Step5.resx">
       <DependentUpon>Step5.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="External\x64\Microsoft.VC90.CRT.manifest">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="External\x86\Microsoft.VC90.CRT.manifest">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -217,6 +267,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Sharp7Eigther_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

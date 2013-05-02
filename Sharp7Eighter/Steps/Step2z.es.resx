@@ -117,151 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="lblZuneError.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblZuneError.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="lblZuneError.Text" xml:space="preserve">
+    <value>El Software de Zune está abierto, debes cerrarlo antes de que podamos continuar. La actualización no lo necesita.
+
+Da click en "Cerrar + Reintentar" para que intentemos cerrarlo por ti y reiniciar la validación de entorno.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblZuneError.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="lblZuneError.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 115</value>
-  </data>
-  <data name="lblZuneError.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>13, 0, 13, 13</value>
-  </data>
-  <data name="lblZuneError.Size" type="System.Drawing.Size, System.Drawing">
-    <value>543, 179</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblZuneError.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lblZuneError.Text" xml:space="preserve">
-    <value>Zune Software is open, you must close it before we continue. The update does not need it.
-
-Click "Close and Retry" so we can try to close Zune for you and restart the environment validation.</value>
-  </data>
-  <data name="&gt;&gt;lblZuneError.Name" xml:space="preserve">
-    <value>lblZuneError</value>
-  </data>
-  <data name="&gt;&gt;lblZuneError.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblZuneError.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;lblZuneError.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="btnCloseAndRetry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="btnCloseAndRetry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnCloseAndRetry.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 16pt</value>
-  </data>
-  <data name="btnCloseAndRetry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="btnCloseAndRetry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 22</value>
+    <value>247, 22</value>
   </data>
   <data name="btnCloseAndRetry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 52</value>
-  </data>
-  <data name="btnCloseAndRetry.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>279, 52</value>
   </data>
   <data name="btnCloseAndRetry.Text" xml:space="preserve">
-    <value>CLOSE + RETRY</value>
-  </data>
-  <data name="&gt;&gt;btnCloseAndRetry.Name" xml:space="preserve">
-    <value>btnCloseAndRetry</value>
-  </data>
-  <data name="&gt;&gt;btnCloseAndRetry.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCloseAndRetry.Parent" xml:space="preserve">
-    <value>pnlBottom</value>
-  </data>
-  <data name="&gt;&gt;btnCloseAndRetry.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnRetry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="btnRetry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnRetry.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 16pt</value>
-  </data>
-  <data name="btnRetry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnRetry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 22</value>
+    <value>CERRAR + REINTENT.</value>
   </data>
   <data name="btnRetry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 52</value>
-  </data>
-  <data name="btnRetry.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>198, 52</value>
   </data>
   <data name="btnRetry.Text" xml:space="preserve">
-    <value>RETRY</value>
-  </data>
-  <data name="&gt;&gt;btnRetry.Name" xml:space="preserve">
-    <value>btnRetry</value>
-  </data>
-  <data name="&gt;&gt;btnRetry.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnRetry.Parent" xml:space="preserve">
-    <value>pnlBottom</value>
-  </data>
-  <data name="&gt;&gt;btnRetry.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pnlBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="pnlBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 294</value>
-  </data>
-  <data name="pnlBottom.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="pnlBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>549, 96</value>
-  </data>
-  <data name="pnlBottom.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pnlBottom.Name" xml:space="preserve">
-    <value>pnlBottom</value>
-  </data>
-  <data name="&gt;&gt;pnlBottom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlBottom.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;pnlBottom.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="picZuneLogo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+    <value>REINTENTAR</value>
   </data>
   <data name="picZuneLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -355,77 +230,5 @@ Click "Close and Retry" so we can try to close Zune for you and restart the envi
         XFZU4elXglyqzEAutGsRDi4Ls4ykv/V/RlzeFzgLMRERXFkIsxAPoAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAD//2Q==
 </value>
-  </data>
-  <data name="picZuneLogo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 52</value>
-  </data>
-  <data name="picZuneLogo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>28, 28, 28, 13</value>
-  </data>
-  <data name="picZuneLogo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>493, 50</value>
-  </data>
-  <data name="picZuneLogo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="picZuneLogo.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;picZuneLogo.Name" xml:space="preserve">
-    <value>picZuneLogo</value>
-  </data>
-  <data name="&gt;&gt;picZuneLogo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;picZuneLogo.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;picZuneLogo.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>549, 390</value>
-  </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pnlBottom" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="picZuneLogo" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblZuneError" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,20" /&gt;&lt;Rows Styles="Percent,39.11565,Percent,60.88435,Absolute,95" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>549, 390</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Step2z</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
