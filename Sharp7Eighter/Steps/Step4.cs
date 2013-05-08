@@ -44,9 +44,12 @@ namespace Sharp7Eigther.Steps {
         public void MainCallback() {
             // Load the update chain, and throw error if phone version is not in it
             if ( !this.LoadUpdateChain() ) {
+                Program.LogWriter.WriteLine("Phone contains a version not in the update chain");
                 this.MainForm.MoveToStep_RightAnimation(this, new Step4w());
                 return;
             }
+
+            this.totalChainItems = updateChain.Count();
 
             // Dequeue previous updates, up to the current version
             updateChainItem chainItem = updateChain.Peek();
@@ -57,8 +60,6 @@ namespace Sharp7Eigther.Steps {
                 chainItem = updateChain.Dequeue();
             }
 
-            this.totalChainItems = updateChain.Count();
-
             // Create thread
             (new Thread(() => {
                 this.MainForm.Invoke(this.MainFormToggleCloseDelegateV);
@@ -67,6 +68,7 @@ namespace Sharp7Eigther.Steps {
         }
 
         private bool LoadUpdateChain() {
+            bool isInChain = false;
             foreach ( string chain in Settings.Default.PackagesChain.Split(new char[] {'>'}) ) {
                 string[] chainComponents = chain.Split(new char[] { '+', '|' });
 
@@ -79,19 +81,23 @@ namespace Sharp7Eigther.Steps {
                 updateChain.Enqueue(chainItem);
 
                 if ( chainItem.revision == DeviceInfo.Revision )
-                    return true;
+                    isInChain = true;
             }
 
-            return false;
+            return isInChain;
         }
 
         private void UpdateNext() {
             // Device already has latest update, let's move on
             if ( updateChain.Count == 0 ) {
+                Program.LogWriter.WriteLine("Device already has latest update");
                 this.MainForm.Invoke(this.MainFormToggleCloseDelegateV);
                 this.MainForm.Invoke(this.OnNextStep, new object[] {this, null});
                 return;
             }
+
+            float progress = ((float)(this.totalChainItems - updateChain.Count) / this.totalChainItems) * 100;
+            this.Invoke(this.UpdateProgressDelegateV, (int)progress);
 
             // Get the next update available
             updateChainItem chainItem = updateChain.Dequeue();
@@ -103,19 +109,24 @@ namespace Sharp7Eigther.Steps {
             // Prepare the command argument
             StringCollection revisionPackages = ((StringCollection)Settings.Default["Update" + chainItem.revision]);
             string cmdArg = revisionPackages[0];
-
+            Program.LogWriter.WriteLine("Added URL to queue: " + revisionPackages[0]);
+            
             if ( revisionPackages.Count > 1 ) {
                 // Load update packages
                 if ( revisionPackages.Count > chainItem.extraParts)
-                    for ( int i = 0; i < chainItem.extraParts; i++ )
+                    for ( int i = 0; i < chainItem.extraParts; i++ ) {
                         cmdArg += " " + revisionPackages[i + 1];
+                        Program.LogWriter.WriteLine("Added URL to queue: " + revisionPackages[i + 1]);
+                    }
                 
                 // Load language updates
                 if ( revisionPackages.Count > chainItem.extraParts + 21 )
-                    foreach ( int i in this.langSelectedIndexes )
+                    foreach ( int i in this.langSelectedIndexes ) {
                         cmdArg += " " + revisionPackages[i + chainItem.extraParts + 1];
+                        Program.LogWriter.WriteLine("Added URL to queue: " + revisionPackages[i + chainItem.extraParts + 1]);
+                    }
             }
-
+            
             // Run the update
             this.RunCommand(cmdArg, chainItem.revision);
         }
@@ -129,7 +140,7 @@ namespace Sharp7Eigther.Steps {
                 RedirectStandardError = true,
                 CreateNoWindow = true,
                 WindowStyle = ProcessWindowStyle.Hidden,
-                UseShellExecute = false
+                UseShellExecute = false,
             };
 
             wpUpdate.EnableRaisingEvents = true;
@@ -137,11 +148,11 @@ namespace Sharp7Eigther.Steps {
                 if ( e.Data == null ) {
                     return;
                 } else if ( e.Data.Contains("Error") ) {
-                    this.Invoke(this.UpdateStatusDelegateV, new string[] { e.Data + "\n\nRetrying..." });
+                    this.Invoke(this.UpdateStatusDelegateV, new string[] { e.Data.Trim() + "\n\nRetrying..." });
                     ((Process)sender).Kill();
                     ((Process)sender).Start();
                 } else {
-                    this.Invoke(this.UpdateStatusDelegateV, new string[] { e.Data });
+                    this.Invoke(this.UpdateStatusDelegateV, new string[] { e.Data.Trim() });
                 }
             };
             wpUpdate.Exited += (object sender, EventArgs e) => {
@@ -191,10 +202,12 @@ namespace Sharp7Eigther.Steps {
                         };
 
                         this.MainForm.Invoke(this.AnimateRight_Delegate, new object[] { this, Step4e_rev });
-                    } else if ( DeviceInfo.Revision == this.updateChain.Peek().revision ) {
-                        this.Invoke(this.UpdateProgressDelegateV, new int[] { (this.updateChain.Count / this.totalChainItems) * 100 });
+                    } else if ( DeviceInfo.Revision != prevRevision ) {
                         this.UpdateNext();
                     } else {
+                        Step4w Step4w = new Step4w();
+                        Step4w.lblErrorDetail.Text = Step4w.lblErrorDetail.Text.Replace("%version%", DeviceInfo.Revision);
+
                         this.MainForm.Invoke(this.MainFormToggleCloseDelegateV);
                         this.MainForm.Invoke(this.AnimateRight_Delegate, new object[] { this, new Step4w() });
                         return;

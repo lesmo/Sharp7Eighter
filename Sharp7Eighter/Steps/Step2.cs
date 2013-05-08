@@ -32,6 +32,7 @@ namespace Sharp7Eigther.Steps {
             // Check UpdateWP.exe existance
             if ( !System.IO.File.Exists(Program.UpdateWPUrl) ) {
                 this.MainForm.MoveToStep_RightAnimation(this, new Step2f());
+                Program.LogWriter.WriteLine("UpdateWP.exe not found");
                 return;
             }
 
@@ -64,6 +65,7 @@ namespace Sharp7Eigther.Steps {
                     this.MainCallback();
                 };
 
+                Program.LogWriter.WriteLine("Zune.exe is currently running");
                 this.MainForm.Invoke(this.AnimateRight_Delegate, new object[] { this, Step2z });
             } else if ( wpUpdateOutput.Contains("COM") ) {
                 // Show Windows Phone Support Tools not installed error
@@ -73,6 +75,7 @@ namespace Sharp7Eigther.Steps {
                     this.MainCallback();
                 };
 
+                Program.LogWriter.WriteLine("Windows Phone Support Tools not found (COM error): \n" + wpUpdateOutput);
                 this.MainForm.Invoke(this.AnimateRight_Delegate, new object[] { this, Step2c });
             } else if ( wpUpdateOutput.Contains("devices were found") ) {
                 // Show no devices found error
@@ -82,12 +85,14 @@ namespace Sharp7Eigther.Steps {
                     this.MainCallback();
                 };
 
+                Program.LogWriter.WriteLine("UpdateWP.exe found no devices to update");
                 this.MainForm.Invoke(this.AnimateRight_Delegate, new object[] { this, Step2d });
             } else if ( wpUpdateOutput.Contains("Applying update") ) {
                 // Parse data for device
                 Helpers.ParseUpdateWpOutput(wpUpdateOutput);
 
                 // Go to next step
+                Program.LogWriter.WriteLine("Environment check completed, everything OK");
                 this.MainForm.Invoke(OnNextStep);
             } else {
                 // Show errors
@@ -97,6 +102,7 @@ namespace Sharp7Eigther.Steps {
                     this.MainCallback();
                 };
 
+                Program.LogWriter.WriteLine("An unexpected output from UpdateWP.exe has ocurred: \n" + wpUpdateOutput);
                 this.MainForm.Invoke(this.AnimateRight_Delegate, new object[] { this, Step2e });
             }
         }

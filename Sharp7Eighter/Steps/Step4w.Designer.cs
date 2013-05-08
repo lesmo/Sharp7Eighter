@@ -63,6 +63,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblMagicError;
-        private System.Windows.Forms.Label lblErrorDetail;
+        public System.Windows.Forms.Label lblErrorDetail;
     }
 }

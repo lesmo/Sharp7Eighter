@@ -20,6 +20,10 @@ namespace Sharp7Eigther {
         
         public static string UpdateWPUrl = System.Environment.CurrentDirectory;
 
+        public static DefaultTraceListener LogWriter = new DefaultTraceListener() {
+            LogFileName = Environment.CurrentDirectory + @"\Sharp7Eighter.log"
+        };
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
