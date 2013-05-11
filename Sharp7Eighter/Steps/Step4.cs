@@ -55,9 +55,10 @@ namespace Sharp7Eigther.Steps {
             updateChainItem chainItem = updateChain.Peek();
 
             while ( true ) {
-                if ( chainItem.revision == DeviceInfo.Revision )
-                    break;
                 chainItem = updateChain.Dequeue();
+
+                if ( chainItem.revision == DeviceInfo.Revision )
+                    break;                
             }
 
             Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "]  " + updateChain.Count.ToString() + " updates detected until last update");
