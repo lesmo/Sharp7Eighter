@@ -44,7 +44,7 @@ namespace Sharp7Eigther.Steps {
         public void MainCallback() {
             // Load the update chain, and throw error if phone version is not in it
             if ( !this.LoadUpdateChain() ) {
-                Program.LogWriter.WriteLine("Phone contains a version not in the update chain");
+                Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "] Current Phone revision (" + DeviceInfo.Revision + ") is not in the update chain");
                 this.MainForm.MoveToStep_RightAnimation(this, new Step4w());
                 return;
             }
@@ -60,6 +60,8 @@ namespace Sharp7Eigther.Steps {
                 chainItem = updateChain.Dequeue();
             }
 
+            Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "]  " + updateChain.Count.ToString() + " updates detected until last update");
+
             // Create thread
             (new Thread(() => {
                 this.MainForm.Invoke(this.MainFormToggleCloseDelegateV);
@@ -68,6 +70,8 @@ namespace Sharp7Eigther.Steps {
         }
 
         private bool LoadUpdateChain() {
+            Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "] Initializing update package chain");
+
             bool isInChain = false;
             foreach ( string chain in Settings.Default.PackagesChain.Split(new char[] {'>'}) ) {
                 string[] chainComponents = chain.Split(new char[] { '+', '|' });
@@ -90,7 +94,7 @@ namespace Sharp7Eigther.Steps {
         private void UpdateNext() {
             // Device already has latest update, let's move on
             if ( updateChain.Count == 0 ) {
-                Program.LogWriter.WriteLine("Device already has latest update");
+                Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "] Device already has latest (" + DeviceInfo.Revision + ") update");
                 this.MainForm.Invoke(this.MainFormToggleCloseDelegateV);
                 this.MainForm.Invoke(this.OnNextStep, new object[] {this, null});
                 return;
@@ -109,25 +113,26 @@ namespace Sharp7Eigther.Steps {
             // Prepare the command argument
             StringCollection revisionPackages = ((StringCollection)Settings.Default["Update" + chainItem.revision]);
             string cmdArg = revisionPackages[0];
-            Program.LogWriter.WriteLine("Added URL to queue: " + revisionPackages[0]);
+            Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "] Added URL to queue: " + revisionPackages[0]);
             
             if ( revisionPackages.Count > 1 ) {
                 // Load update packages
                 if ( revisionPackages.Count > chainItem.extraParts)
                     for ( int i = 0; i < chainItem.extraParts; i++ ) {
                         cmdArg += " " + revisionPackages[i + 1];
-                        Program.LogWriter.WriteLine("Added URL to queue: " + revisionPackages[i + 1]);
+                        Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "] Added URL to queue: " + revisionPackages[i + 1]);
                     }
                 
                 // Load language updates
                 if ( revisionPackages.Count > chainItem.extraParts + 21 )
                     foreach ( int i in this.langSelectedIndexes ) {
                         cmdArg += " " + revisionPackages[i + chainItem.extraParts + 1];
-                        Program.LogWriter.WriteLine("Added URL to queue: " + revisionPackages[i + chainItem.extraParts + 1]);
+                        Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "] Added URL to queue: " + revisionPackages[i + chainItem.extraParts + 1]);
                     }
             }
             
             // Run the update
+            Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "] Running UpdateWP.exe with URL queue");
             this.RunCommand(cmdArg, chainItem.revision);
         }
 
@@ -148,6 +153,7 @@ namespace Sharp7Eigther.Steps {
                 if ( e.Data == null ) {
                     return;
                 } else if ( e.Data.Contains("Error") ) {
+                    Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "] ! " + e.Data);
                     this.Invoke(this.UpdateStatusDelegateV, new string[] { e.Data.Trim() + "\n\nRetrying..." });
                     ((Process)sender).Kill();
                     ((Process)sender).Start();
@@ -156,6 +162,8 @@ namespace Sharp7Eigther.Steps {
                 }
             };
             wpUpdate.Exited += (object sender, EventArgs e) => {
+                Program.LogWriter.WriteLine("[" + DateTime.UtcNow + "] Update to " + newRev + " completed, checking phone status");
+
                 Process wpUpdate_getDeviceInfo = new Process();
                 wpUpdate_getDeviceInfo.StartInfo = new ProcessStartInfo() {
                     FileName = Program.UpdateWPUrl,

@@ -37,7 +37,10 @@ namespace Sharp7Eigther {
                                : Properties.Settings.Default.UpdateWPx86);
 
                 Application.EnableVisualStyles();
-                
+
+                LogWriter.WriteLine("");
+                LogWriter.WriteLine("[Tool session started at " + DateTime.UtcNow + "]");
+
                 MainForm = new Main();
                 Application.Run(MainForm);
             } else {

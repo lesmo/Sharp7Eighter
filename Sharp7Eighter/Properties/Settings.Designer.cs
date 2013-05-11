@@ -90,10 +90,7 @@ namespace Sharp7Eigther.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("7740|Update Pre-Tango 1/2>8107|Update Pre-Tango 2/2>8112+1|Windows Phone Tango 1/" +
-            "2>8773+1|Windows Phone Tango 2/2>8779|Update Pre-7.8 1/3>8783|Update Pre-7.8 2/3" +
-            ">8858+1|Windows Phone 7.8>8860|Windows Phone 7.8 Fix #1>8862|Windows Phone 7.8 F" +
-            "ix #2")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"7720|WP Base>7740|Update Pre-Tango 1/2>8107|Update Pre-Tango 2/2>8112+1|Windows Phone Tango 1/2>8773+1|Windows Phone Tango 2/2>8779|Update Pre-7.8 1/3>8783|Update Pre-7.8 2/3>8858+1|Windows Phone 7.8>8860|Windows Phone 7.8 Fix #1>8862|Windows Phone 7.8 Fix #2")]
         public string PackagesChain {
             get {
                 return ((string)(this["PackagesChain"]));
